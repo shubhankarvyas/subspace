@@ -275,12 +275,6 @@ func (s *Stealth) makeTypo(selector string) {
 	time.Sleep(time.Duration(s.randomInt(50, 150)) * time.Millisecond)
 }
 
-
-// WHY: Humans move mouse while reading/thinking; bots often keep it still.
-// HOW: Occasional small, random mouse movements.
-// TRADEOFF: Minimal performance impact, adds significant realism.
-
-// WanderMouse performs small random mouse movements
 func (s *Stealth) WanderMouse() error {
 	if !s.config.MouseWanderEnabled {
 		return nil

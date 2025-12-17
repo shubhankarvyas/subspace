@@ -11,20 +11,6 @@ import (
 	"subspace/internal/storage"
 )
 
-/*
-SEARCH MODULE - EDUCATIONAL IMPLEMENTATION
-
-Demonstrates search and targeting logic with pagination and deduplication.
-Does NOT contain real selectors or working search functionality.
-
-FEATURES:
-- Mock search execution with keywords
-- Pagination handling
-- Profile deduplication
-- Search result parsing simulation
-*/
-
-// Searcher handles search operations
 type Searcher struct {
 	browser browser.Controller
 	stealth *stealth.Stealth
@@ -158,19 +144,6 @@ func (s *Searcher) buildSearchURL(keywords string) string {
 func (s *Searcher) parseSearchResults() ([]*storage.Profile, error) {
 	s.log.Debug("Parsing search results")
 
-	// EDUCATIONAL NOTE: In production, this would:
-	// 1. Find all profile cards on the page
-	// 2. Extract name, title, company, profile URL from each card
-	// 3. Handle various result formats
-	//
-	// Example production code:
-	// elements, err := s.browser.Page.Elements(".search-result__info")
-	// for _, elem := range elements {
-	//     name := elem.MustElement(".actor-name").MustText()
-	//     ... extract other fields
-	// }
-
-	// For PoC, generate mock profiles
 	mockProfiles := s.generateMockProfiles()
 
 	s.log.Debug("Parsed results", "count", len(mockProfiles))
@@ -226,19 +199,6 @@ func (s *Searcher) generateMockProfiles() []*storage.Profile {
 func (s *Searcher) goToNextPage() error {
 	s.log.Debug("Navigating to next page")
 
-	// EDUCATIONAL NOTE: In production:
-	// 1. Find the "Next" button
-	// 2. Scroll it into view with stealth
-	// 3. Move mouse to button
-	// 4. Click
-	// 5. Wait for new results to load
-	//
-	// Example:
-	// nextBtn := s.browser.Page.MustElement(".artdeco-pagination__button--next")
-	// s.stealth.MoveMouse(nextBtn coordinates)
-	// s.browser.Click(nextBtn selector)
-
-	// Mock navigation
 	s.stealth.RandomDelay()
 	s.stealth.WaitForPageLoad()
 
