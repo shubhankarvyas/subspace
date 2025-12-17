@@ -1,0 +1,142 @@
+# =============================================================================
+# SUBSPACE AUTOMATION POC - CONFIGURATION
+# =============================================================================
+# This is an EDUCATIONAL configuration file demonstrating automation settings.
+# All values can be tuned to adjust behavior and stealth characteristics.
+
+# =============================================================================
+# APPLICATION SETTINGS
+# =============================================================================
+app:
+  # Data directory for storage and session files
+  data_dir: "./data"
+  
+  # Logging level: debug, info, warn, error
+  log_level: "info"
+  
+  # Run browser in headless mode (no visible window)
+  headless: false
+  
+  # User agent string (rotated for fingerprint diversity)
+  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+# =============================================================================
+# STEALTH CONFIGURATION - ANTI-DETECTION TECHNIQUES
+# =============================================================================
+stealth:
+  # ---------------------------------------------------------------------------
+  # TECHNIQUE 1: Bézier Curve Mouse Movement
+  # ---------------------------------------------------------------------------
+  # Controls how the mouse moves between points
+  mouse_speed: 300.0              # Pixels per second (200-400 is human-like)
+  
+  # ---------------------------------------------------------------------------
+  # TECHNIQUE 6: Mouse Hover Wandering
+  # ---------------------------------------------------------------------------
+  # Simulates reading by moving mouse randomly
+  mouse_wander_enabled: true
+  mouse_wander_chance: 0.15       # 15% chance to wander during pauses
+  
+  # ---------------------------------------------------------------------------
+  # TECHNIQUE 5: Typing Simulation with Typos
+  # ---------------------------------------------------------------------------
+  # Human-like typing with errors and corrections
+  typing_speed_min: 80            # Milliseconds per keystroke (faster bound)
+  typing_speed_max: 200           # Milliseconds per keystroke (slower bound)
+  typo_chance: 0.03               # 3% chance of making a typo
+  typo_correction: true           # Automatically correct typos with backspace
+  
+  # ---------------------------------------------------------------------------
+  # TECHNIQUE 2: Randomized Timing Patterns
+  # ---------------------------------------------------------------------------
+  # Variable delays between actions to appear human
+  action_delay_min: 500           # Minimum milliseconds between actions
+  action_delay_max: 2000          # Maximum milliseconds between actions
+  think_time_min: 2000            # Longer "thinking" pauses (min)
+  think_time_max: 5000            # Longer "thinking" pauses (max)
+  
+  # ---------------------------------------------------------------------------
+  # TECHNIQUE 4: Random Scrolling with Acceleration
+  # ---------------------------------------------------------------------------
+  # Natural scrolling behavior with physics
+  scroll_enabled: true
+  scroll_chance: 0.3              # 30% chance to scroll before actions
+  scroll_distance: 300            # Pixels to scroll (can be negative)
+  scroll_acceleration: 0.8        # Ease-in-out curve factor (0-1)
+  
+  # ---------------------------------------------------------------------------
+  # TECHNIQUE 7: Activity Scheduling (Business Hours)
+  # ---------------------------------------------------------------------------
+  # Restrict automation to normal working hours
+  business_hours_enabled: true
+  business_hours_start: "09:00"   # Start time (24-hour format)
+  business_hours_end: "17:00"     # End time (24-hour format)
+  
+  # Break time (lunch, etc.)
+  break_time_enabled: true
+  break_time_start: "12:00"
+  break_time_end: "13:00"
+  
+  # ---------------------------------------------------------------------------
+  # TECHNIQUE 3: Browser Fingerprint Masking
+  # ---------------------------------------------------------------------------
+  # Hide automation indicators
+  mask_webdriver: true            # Hide navigator.webdriver flag
+  mask_chrome: true               # Hide Chrome automation indicators
+  
+  # Randomize browser window size
+  random_viewport: true
+  viewport_width_min: 1200
+  viewport_width_max: 1920
+  viewport_height_min: 800
+  viewport_height_max: 1080
+
+# =============================================================================
+# RATE LIMITS & SAFETY BOUNDARIES
+# =============================================================================
+# TECHNIQUE 8: Rate Limiting & Cooldown
+limits:
+  # Connection request limits
+  connections_per_day: 50         # Maximum connection requests per day
+  connections_per_hour: 10        # Maximum connection requests per hour
+  
+  # Messaging limits
+  messages_per_day: 30            # Maximum messages sent per day
+  
+  # Search limits
+  searches_per_day: 20            # Maximum searches per day
+  
+  # Cooldown period after hitting daily limit
+  cooldown_minutes: 60            # Wait time after limit reached
+
+# =============================================================================
+# AUTHENTICATION SETTINGS
+# =============================================================================
+auth:
+  # Path to store session cookies
+  session_cookie_path: "./data/session.json"
+  
+  # Attempt to reuse existing session before logging in
+  reuse_session: true
+  
+  # Number of retries if checkpoint (security challenge) detected
+  checkpoint_retries: 3
+
+# =============================================================================
+# SEARCH SETTINGS
+# =============================================================================
+search:
+  # Results to process per page
+  results_per_page: 25
+  
+  # Maximum pages to process per search
+  max_pages: 10
+  
+  # Days to remember seen profiles (deduplication)
+  deduplication_window: 30
+  
+  # Default search keywords (fallback)
+  default_keywords:
+    - "software engineer"
+    - "golang developer"
+    - "backend engineer"

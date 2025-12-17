@@ -1,0 +1,63 @@
+# .gitignore for Subspace Automation PoC
+
+# Binaries
+subspace
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+*.test
+*.out
+
+# Go workspace file
+go.work
+
+# Data directory (contains sensitive session data)
+data/
+*.db
+*.json
+!.gitkeep
+
+# Environment variables (contains credentials)
+.env
+
+# Session cookies (sensitive)
+session.json
+cookies.json
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+dist/
+build/
+bin/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Screenshots (may contain sensitive data)
+screenshots/
+*.png
+*.jpg
+
+# Coverage
+*.coverprofile
+coverage.html
+
+# OS specific
+Thumbs.db
+.directory
